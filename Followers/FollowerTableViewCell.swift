@@ -24,7 +24,7 @@ class FollowerTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Ndalo_K"
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.bold)
+        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,7 +33,7 @@ class FollowerTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Ndalwentle Kuse"
         label.textColor = .gray
-        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.regular)
+        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,6 +44,7 @@ class FollowerTableViewCell: UITableViewCell {
         stackView.distribution = .fillProportionally
         stackView.spacing = 2
         stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -53,6 +54,7 @@ class FollowerTableViewCell: UITableViewCell {
         stackView.distribution = .fillProportionally
         stackView.axis = .horizontal
         stackView.spacing = 5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -61,6 +63,8 @@ class FollowerTableViewCell: UITableViewCell {
         button.setTitle("Follow", for: UIControl.State.normal)
         button.setTitleColor(.white, for: UIControl.State.normal)
         button.backgroundColor = .blue
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -72,24 +76,32 @@ class FollowerTableViewCell: UITableViewCell {
     
     func setupUI() {
         addSubview(followerImageView)
+        addSubview(followButton)
+        addSubview(imageViewStack)
+        addSubview(userNameStackView)
         
-        followerImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
+        //followerImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
         followerImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         followerImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        followerImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        //followerImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
+        followButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -24).isActive = true
+        followButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        followButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        followButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        imageViewStack.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
+        imageViewStack.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+        imageViewStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        
+        userNameStackView.leftAnchor.constraint(equalTo: followerImageView.rightAnchor, constant: 10).isActive = true
+        userNameStackView.rightAnchor.constraint(equalTo: followButton.rightAnchor, constant: -10).isActive = true
+        userNameStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
-    
-    
-    
-    
+
 }
