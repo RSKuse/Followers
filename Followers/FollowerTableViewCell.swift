@@ -48,9 +48,9 @@ class FollowerTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    lazy var imageViewStack: UIStackView = {
+    lazy var imageViewStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [followerImageView, userNameStackView])
-        stackView.alignment = .trailing
+        stackView.alignment = .center
         stackView.distribution = .fillProportionally
         stackView.axis = .horizontal
         stackView.spacing = 5
@@ -77,26 +77,19 @@ class FollowerTableViewCell: UITableViewCell {
     func setupUI() {
         addSubview(followerImageView)
         addSubview(followButton)
-        addSubview(imageViewStack)
-        addSubview(userNameStackView)
+        addSubview(imageViewStackView)
         
-        //followerImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
         followerImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         followerImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        //followerImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         followButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -24).isActive = true
         followButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         followButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         followButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        imageViewStack.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
-        imageViewStack.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        imageViewStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-        
-        userNameStackView.leftAnchor.constraint(equalTo: followerImageView.rightAnchor, constant: 10).isActive = true
-        userNameStackView.rightAnchor.constraint(equalTo: followButton.rightAnchor, constant: -10).isActive = true
-        userNameStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        imageViewStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
+        imageViewStackView.rightAnchor.constraint(equalTo: followButton.rightAnchor, constant: -10).isActive = true
+        imageViewStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
     }
     
