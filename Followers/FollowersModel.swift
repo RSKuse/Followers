@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Followers {
+struct Follower {
     let followerImage: UIImage
     let followerName: String
     let followerUserName: String

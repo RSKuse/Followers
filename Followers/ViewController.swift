@@ -8,7 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   
+    
+    var followersArray: [Follower] = [Follower(followerImage: UIImage(named: "Vegeta")!, followerName: "Ndaloentle Kuse", followerUserName: "Ndalo_K")]
+
     lazy var followerTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
@@ -42,11 +44,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return followersArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let followerCell = tableView.dequeueReusableCell(withIdentifier: "FollowerTableViewCellID",for: indexPath) as! FollowerTableViewCell
+        followerCell.userNameLabel.text = followersArray[indexPath.row].followerUserName
+        followerCell.nameLabel.text = followersArray[indexPath.row].followerName
+        followerCell.followerImageView.image = followersArray[indexPath.row].followerImage
         return followerCell
         
     }
