@@ -14,6 +14,7 @@
 		F35995A72A4EECD200256F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35995A62A4EECD200256F6D /* Assets.xcassets */; };
 		F35995AA2A4EECD200256F6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35995A82A4EECD200256F6D /* LaunchScreen.storyboard */; };
 		F35995B22A4EF13000256F6D /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35995B12A4EF13000256F6D /* FollowerTableViewCell.swift */; };
+		F35995B42A51EBB000256F6D /* FollowersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35995B32A51EBB000256F6D /* FollowersModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F35995A92A4EECD200256F6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F35995AB2A4EECD200256F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35995B12A4EF13000256F6D /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
+		F35995B32A51EBB000256F6D /* FollowersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				F359959D2A4EECD100256F6D /* AppDelegate.swift */,
 				F359959F2A4EECD100256F6D /* SceneDelegate.swift */,
 				F35995A12A4EECD100256F6D /* ViewController.swift */,
+				F35995B32A51EBB000256F6D /* FollowersModel.swift */,
 				F35995B12A4EF13000256F6D /* FollowerTableViewCell.swift */,
 				F35995A32A4EECD100256F6D /* Main.storyboard */,
 				F35995A62A4EECD200256F6D /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 				F359959E2A4EECD100256F6D /* AppDelegate.swift in Sources */,
 				F35995A02A4EECD100256F6D /* SceneDelegate.swift in Sources */,
 				F35995B22A4EF13000256F6D /* FollowerTableViewCell.swift in Sources */,
+				F35995B42A51EBB000256F6D /* FollowersModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
