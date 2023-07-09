@@ -22,8 +22,8 @@ class FollowerTableViewCell: UITableViewCell {
     
     lazy var userNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Ndalo_K"
         label.textColor = .black
+        label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -31,7 +31,6 @@ class FollowerTableViewCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Ndalwentle Kuse"
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +52,7 @@ class FollowerTableViewCell: UITableViewCell {
         stackView.alignment = .center
         stackView.distribution = .fillProportionally
         stackView.axis = .horizontal
-        stackView.spacing = 5
+        stackView.spacing = 12
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -62,8 +61,8 @@ class FollowerTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setTitle("Follow", for: UIControl.State.normal)
         button.setTitleColor(.white, for: UIControl.State.normal)
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 10
+        button.backgroundColor = .systemCyan
+        button.layer.cornerRadius = 12.0
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -84,13 +83,13 @@ class FollowerTableViewCell: UITableViewCell {
         
         followButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -24).isActive = true
         followButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        followButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        followButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
         followButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         imageViewStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
         imageViewStackView.rightAnchor.constraint(equalTo: followButton.rightAnchor, constant: -10).isActive = true
         imageViewStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-
+        
     }
     
     required init?(coder: NSCoder) {
