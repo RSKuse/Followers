@@ -1,6 +1,6 @@
 //
-//  FollowerProfileViewController.swift
-//  Followers
+//  ProfileProfileViewController.swift
+//  Profiles
 //
 //  Created by Reuben Simphiwe Kuse on 2023/07/07.
 //
@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController  {
     
-    var follower: Follower?
+    var profile: Profile?
     
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -143,7 +143,7 @@ class ProfileViewController: UIViewController  {
         return stackView
     }()
     
-    lazy var postFollowerFollowingStackView: UIStackView = {
+    lazy var postProfileFollowingStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [postCountLabelStack, followCountLabelStack, followingCountLabelStack])
         stackView.alignment = .center
         stackView.distribution = .fillProportionally
@@ -216,26 +216,29 @@ class ProfileViewController: UIViewController  {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
-        navigationItem.title = follower?.followerUserName
-        profileImageView.image = follower?.followerImage
-        profileNameLabel.text = follower?.followerName
-        postNameLabel.text = follower?.postLabel
-        followNameLabel.text = follower?.followerLabel
-        followingNameLabel.text = follower?.followingLabel
-        postCountLabel.text = follower?.postCount
-        followerCountLabel.text = follower?.followerCount
-        followingCountLabel.text = follower?.followingCount
-        occupationNameLabel.text = follower?.professionUserLabel
-        descriptionNameLabel.text = follower?.sloganUserLabel
-        linkImageView.image = follower?.linkImage
-        linkNameLabel.text = follower?.linkUserLabel
+        navigationItem.title = profile?.followerUserName
+        profileImageView.image = profile?.followerImage
+        profileNameLabel.text = profile?.followerName
+        postNameLabel.text = profile?.postLabel
+        followNameLabel.text = profile?.followerLabel
+        followingNameLabel.text = profile?.followingLabel
+        
+        // Using exclamation marks (!) is extremely discouraged. Later I will show how to use something called "Optional Unwrapping" and Guard Statements
+        postCountLabel.text = "\(profile!.postCount)"
+        followerCountLabel.text = "\(profile!.followerCount)" // \(233490032)
+        followingCountLabel.text = "\(profile!.followingCount)" // "\(5.4)"
+        
+        occupationNameLabel.text = profile?.professionUserLabel
+        descriptionNameLabel.text = profile?.sloganUserLabel
+        linkImageView.image = profile?.linkImage
+        linkNameLabel.text = profile?.linkUserLabel
         let threeDotsBarButtonItem = UIBarButtonItem(customView: threeDotsButton)
         navigationItem.rightBarButtonItem = threeDotsBarButtonItem
     }
     
     func setupUI() {
         view.addSubview(profileImageView)
-        view.addSubview(postFollowerFollowingStackView)
+        view.addSubview(postProfileFollowingStackView)
         view.addSubview(profileOccupationDescriptionStackView)
         view.addSubview(linkImageView)
         view.addSubview(linkImageViewStackView)
@@ -250,9 +253,9 @@ class ProfileViewController: UIViewController  {
         profileImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
         profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
         
-        postFollowerFollowingStackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 30).isActive = true
-        postFollowerFollowingStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
-        postFollowerFollowingStackView.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true
+        postProfileFollowingStackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 30).isActive = true
+        postProfileFollowingStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
+        postProfileFollowingStackView.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true
         
         profileOccupationDescriptionStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24).isActive = true
         profileOccupationDescriptionStackView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10).isActive = true
