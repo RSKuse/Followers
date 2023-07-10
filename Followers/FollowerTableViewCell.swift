@@ -1,6 +1,6 @@
 //
-//  FollowerTableViewCell.swift
-//  Followers
+//  ProfileTableViewCell.swift
+//  Profiles
 //
 //  Created by Reuben Simphiwe Kuse on 2023/06/30.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class FollowerTableViewCell: UITableViewCell {
+class ProfileTableViewCell: UITableViewCell {
     
     lazy var followerImageView: UIImageView = {
         let imageView = UIImageView()

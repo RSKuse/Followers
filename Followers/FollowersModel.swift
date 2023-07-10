@@ -1,6 +1,6 @@
 //
-//  FollowersModel.swift
-//  Followers
+//  ProfilesModel.swift
+//  Profiles
 //
 //  Created by Reuben Simphiwe Kuse on 2023/07/02.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Follower {
+struct Profile {
     let followerImage: UIImage
     let linkImage: UIImage
     let followerName: String
@@ -19,8 +19,8 @@ struct Follower {
     let postLabel: String
     let followerLabel: String
     let followingLabel: String
-    let postCount: String
-    let followerCount: String
-    let followingCount: String
+    let postCount: Int
+    let followerCount: Int
+    let followingCount: Int
     
 }

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Followers
+//  Profiles
 //
 //  Created by Reuben Simphiwe Kuse on 2023/06/30.
 //
