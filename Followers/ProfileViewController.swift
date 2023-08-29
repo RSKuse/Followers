@@ -10,18 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController  {
     
-    var profile: Profile? {
-        didSet {
-            navigationItem.title = profile?.username
-            profileImageView.image = profile?.profileImage
-            nameLabel.text = profile?.name
-            postCountLabel.text = "\(profile!.postCount)"
-            followerCountLabel.text = "\(profile!.followerCount)" // \(233490032)
-            followingCountLabel.text = "\(profile!.followingCount)" // "\(5.4)"
-            
-            descriptionLabel.text = profile?.slogan
-        }
-    }
+    var profile: Profile?
     
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -206,6 +195,13 @@ class ProfileViewController: UIViewController  {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
+        navigationItem.title = profile?.username
+        profileImageView.image = profile?.profileImage
+        nameLabel.text = profile?.name
+        postCountLabel.text = "\(profile!.postCount)"
+        followerCountLabel.text = "\(profile!.followerCount)"
+        followingCountLabel.text = "\(profile!.followingCount)"
+        descriptionLabel.text = profile?.slogan
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "•••",
                                                             style: .done,
                                                             target: self,

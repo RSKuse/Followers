@@ -14,7 +14,7 @@ class ProfileTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 30
+        imageView.layer.cornerRadius = 24
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .red
         return imageView
@@ -23,22 +23,22 @@ class ProfileTableViewCell: UITableViewCell {
     lazy var userNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.numberOfLines = 2
-        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var nameLabel: UILabel = {
+    lazy var followingYouLabel: UILabel = {
         let label = UILabel()
+        label.text = "started following you"
         label.textColor = .gray
-        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var userNameStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [userNameLabel, nameLabel])
+        let stackView = UIStackView(arrangedSubviews: [userNameLabel, followingYouLabel])
         stackView.alignment = .leading
         stackView.distribution = .fillProportionally
         stackView.spacing = 2
@@ -61,8 +61,9 @@ class ProfileTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setTitle("Follow", for: UIControl.State.normal)
         button.setTitleColor(.white, for: UIControl.State.normal)
-        button.backgroundColor = .systemCyan
-        button.layer.cornerRadius = 12.0
+        button.backgroundColor = .systemBlue
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        button.layer.cornerRadius = 8.0
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -74,21 +75,21 @@ class ProfileTableViewCell: UITableViewCell {
     }
     
     func setupUI() {
-        addSubview(profileImageView)
         addSubview(followButton)
+        addSubview(profileImageView)
         addSubview(imageViewStackView)
         
-        profileImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        
-        followButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -24).isActive = true
+        followButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         followButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        followButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        followButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        followButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        followButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
         
         imageViewStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
-        imageViewStackView.rightAnchor.constraint(equalTo: followButton.rightAnchor, constant: -10).isActive = true
+        imageViewStackView.rightAnchor.constraint(equalTo: followButton.leftAnchor, constant: -20).isActive = true
         imageViewStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        profileImageView.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 48).isActive = true
         
     }
     
