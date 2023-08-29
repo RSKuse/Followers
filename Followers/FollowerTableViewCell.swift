@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
     
-    lazy var followerImageView: UIImageView = {
+    lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -48,7 +48,7 @@ class ProfileTableViewCell: UITableViewCell {
     }()
     
     lazy var imageViewStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [followerImageView, userNameStackView])
+        let stackView = UIStackView(arrangedSubviews: [profileImageView, userNameStackView])
         stackView.alignment = .center
         stackView.distribution = .fillProportionally
         stackView.axis = .horizontal
@@ -74,12 +74,12 @@ class ProfileTableViewCell: UITableViewCell {
     }
     
     func setupUI() {
-        addSubview(followerImageView)
+        addSubview(profileImageView)
         addSubview(followButton)
         addSubview(imageViewStackView)
         
-        followerImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        followerImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
         followButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -24).isActive = true
         followButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
