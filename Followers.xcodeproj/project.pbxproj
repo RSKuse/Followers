@@ -16,6 +16,7 @@
 		F35995B22A4EF13000256F6D /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35995B12A4EF13000256F6D /* FollowerTableViewCell.swift */; };
 		F35995B42A51EBB000256F6D /* FollowersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35995B32A51EBB000256F6D /* FollowersModel.swift */; };
 		F359960A2A58501700256F6D /* FollowerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35996092A58501700256F6D /* FollowerProfileViewController.swift */; };
+		F3840D402AA60CD600882B06 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3840D3F2AA60CD600882B06 /* Database.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F35995B12A4EF13000256F6D /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		F35995B32A51EBB000256F6D /* FollowersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersModel.swift; sourceTree = "<group>"; };
 		F35996092A58501700256F6D /* FollowerProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerProfileViewController.swift; sourceTree = "<group>"; };
+		F3840D3F2AA60CD600882B06 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				F359959F2A4EECD100256F6D /* SceneDelegate.swift */,
 				F359959D2A4EECD100256F6D /* AppDelegate.swift */,
+				F3840D3F2AA60CD600882B06 /* Database.swift */,
 				F35995A12A4EECD100256F6D /* ViewController.swift */,
 				F35996092A58501700256F6D /* FollowerProfileViewController.swift */,
 				F35995B32A51EBB000256F6D /* FollowersModel.swift */,
@@ -152,6 +155,7 @@
 				F359960A2A58501700256F6D /* FollowerProfileViewController.swift in Sources */,
 				F35995A02A4EECD100256F6D /* SceneDelegate.swift in Sources */,
 				F35995B22A4EF13000256F6D /* FollowerTableViewCell.swift in Sources */,
+				F3840D402AA60CD600882B06 /* Database.swift in Sources */,
 				F35995B42A51EBB000256F6D /* FollowersModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
