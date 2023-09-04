@@ -49,14 +49,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        var profile = database.profileArray[indexPath.row]
        followerCell.userNameLabel.text = profile.username
        followerCell.profileImageView.image = profile.profileImage
+       
+       // Simphiwe's solution
+       /*
        followerCell.followButtonTapped = { [] in
            self.showFollowAlert(for: profile) {
                profile.isFollowing.toggle()
                let followButtonTitle = profile.isFollowing ? "Follow" : "Following"
                followerCell.followButton.setTitle(followButtonTitle, for: .normal)
                self.database.profileArray[indexPath.row].isFollowing = profile.isFollowing
+               
+               followerCell.followButton.setTitleColor(.black, for: .normal)
+               followerCell.followButton.backgroundColor = .systemGroupedBackground
            }
        }
+       */
+       
+       // Other way to do it. Still using closures.
+       followerCell.followButtonTapped = {
+           
+           let alert = UIAlertController(title: "Follow Confirmation \(profile.name)",
+                                         message: "Do you want to follow \(profile.username)?",
+                                         preferredStyle: .actionSheet)
+           let followAction = UIAlertAction(title: "Follow Back", style: .default) { _ in
+               
+               // Update the Button when the user clicks Follow Back
+               followerCell.followButton.setTitle("Following", for: .normal)
+               followerCell.followButton.setTitleColor(.black, for: .normal)
+               followerCell.followButton.backgroundColor = .systemGroupedBackground
+           }
+           
+           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+           
+           alert.addAction(followAction)
+           alert.addAction(cancelAction)
+           self.present(alert, animated: true, completion: nil)
+       }
+       
        let followButtonTitle = profile.isFollowing ? "Follow" : "Following"
        followerCell.followButton.setTitle(followButtonTitle, for: .normal)
        return followerCell

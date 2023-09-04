@@ -210,7 +210,7 @@ class ProfileViewController: UIViewController  {
         updateFollowButtonTitle()
 
         let followButtonTitle = profile!.isFollowing ? "Follow" : "Following"
-            followButton.setTitle(followButtonTitle, for: .normal)
+        followButton.setTitle(followButtonTitle, for: .normal)
         
     }
     

@@ -10,8 +10,8 @@ import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
     var followButtonTapped: (() -> Void)?
-    var profile: Profile?
     
+
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
