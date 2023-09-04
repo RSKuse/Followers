@@ -209,9 +209,14 @@ class ProfileViewController: UIViewController  {
         followButton.addTarget(self, action: #selector(followButtonTapped), for: .touchUpInside)
         updateFollowButtonTitle()
 
-        let followButtonTitle = profile!.isFollowing ? "Follow" : "Following"
+        let followButtonTitle = profile!.isFollowing ? "Following" : "Follow"
         followButton.setTitle(followButtonTitle, for: .normal)
         
+        let titleColour = profile!.isFollowing ? UIColor.black : UIColor.white
+        followButton.setTitleColor(titleColour, for: .normal)
+        
+        let backgroundColour = profile!.isFollowing ? UIColor.systemGroupedBackground : UIColor.systemBlue
+        followButton.backgroundColor = backgroundColour
     }
     
     func setupUI() {

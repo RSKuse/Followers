@@ -30,6 +30,6 @@ class UserDatabase {
                 postCount: 1116,
                 followerCount: 221,
                 followingCount: 20,
-                isFollowing: true)
+                isFollowing: false) // The user would start off in a false state. 
     ]
 }

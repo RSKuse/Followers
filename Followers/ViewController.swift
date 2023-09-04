@@ -50,7 +50,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        followerCell.userNameLabel.text = profile.username
        followerCell.profileImageView.image = profile.profileImage
        
-       // Simphiwe's solution
+       let followButtonTitle = profile.isFollowing ? "Following" : "Follow"
+       followerCell.followButton.setTitle(followButtonTitle, for: .normal)
+       
+       // Update the Title and background if the profile is being followed or not.
+       let titleColour = profile.isFollowing ? UIColor.black : UIColor.white
+       followerCell.followButton.setTitleColor(titleColour, for: .normal)
+       
+       let backgroundColour = profile.isFollowing ? UIColor.systemGroupedBackground : UIColor.systemBlue
+       followerCell.followButton.backgroundColor = backgroundColour
+       
+       // MARK: Simphiwe's solution
        /*
        followerCell.followButtonTapped = { [] in
            self.showFollowAlert(for: profile) {
@@ -65,7 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        }
        */
        
-       // Other way to do it. Still using closures.
+       // MARK: Other way to do it. Still using closures.
        followerCell.followButtonTapped = {
            
            let alert = UIAlertController(title: "Follow Confirmation \(profile.name)",
@@ -73,10 +83,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                          preferredStyle: .actionSheet)
            let followAction = UIAlertAction(title: "Follow Back", style: .default) { _ in
                
-               // Update the Button when the user clicks Follow Back
-               followerCell.followButton.setTitle("Following", for: .normal)
-               followerCell.followButton.setTitleColor(.black, for: .normal)
-               followerCell.followButton.backgroundColor = .systemGroupedBackground
+               profile.isFollowing.toggle()
+               let followButtonTitle = profile.isFollowing ? "Following" : "Follow"
+               followerCell.followButton.setTitle(followButtonTitle, for: .normal)
+               
+               let titleColour = profile.isFollowing ? UIColor.black : UIColor.white
+               followerCell.followButton.setTitleColor(titleColour, for: .normal)
+               
+               let backgroundColour = profile.isFollowing ? UIColor.systemGroupedBackground : UIColor.systemBlue
+               followerCell.followButton.backgroundColor = backgroundColour
            }
            
            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -86,8 +101,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
            self.present(alert, animated: true, completion: nil)
        }
        
-       let followButtonTitle = profile.isFollowing ? "Follow" : "Following"
-       followerCell.followButton.setTitle(followButtonTitle, for: .normal)
        return followerCell
    }
    
@@ -102,6 +115,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        navigationController?.pushViewController(profileViewController, animated: true)
    }
    
+    /*
    func showFollowAlert(for profile: Profile, completion: @escaping () -> Void) {
        let alert = UIAlertController(title: "Follow Confirmation \(profile.name)",
                                      message: "Do you want to follow \(profile.username)?",
@@ -114,5 +128,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        alert.addAction(cancelAction)
        present(alert, animated: true, completion: nil)
    }
+    */
 
 }

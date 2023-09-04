@@ -18,5 +18,5 @@ struct Profile {
     let postCount: Int
     let followerCount: Int
     let followingCount: Int
-    var isFollowing: Bool   
+    var isFollowing: Bool = false
 }

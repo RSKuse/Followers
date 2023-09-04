@@ -11,7 +11,6 @@ import UIKit
 class ProfileTableViewCell: UITableViewCell {
     var followButtonTapped: (() -> Void)?
     
-
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -82,8 +81,6 @@ class ProfileTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(imageViewStackView)
 
-        
-        
         followButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         followButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         followButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
