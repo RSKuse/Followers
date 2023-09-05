@@ -207,6 +207,8 @@ class ProfileViewController: UIViewController  {
                                                             target: self,
                                                             action: #selector(threeDotsButtonTapped))
         followButton.addTarget(self, action: #selector(followButtonTapped), for: .touchUpInside)
+        messageButton.addTarget(self, action: #selector(messageButtonTapped), for: .touchUpInside)
+
     }
     
     func setupUI() {
@@ -323,7 +325,10 @@ class ProfileViewController: UIViewController  {
         
         present(alertController, animated: true, completion: nil)
     }
-
+    @objc func messageButtonTapped() {
+        let messageComposeVC = MessageComposeViewController()
+        navigationController?.pushViewController(messageComposeVC, animated: true)
+    }
     
 }
 
