@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
+    
     var followButtonTapped: (() -> Void)?
     
     lazy var profileImageView: UIImageView = {

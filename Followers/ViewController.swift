@@ -50,48 +50,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        followerCell.userNameLabel.text = profile.username
        followerCell.profileImageView.image = profile.profileImage
        
-       let followButtonTitle = profile.isFollowing ? "Following" : "Follow"
+       let followButtonTitle = profile.isFollowing ? "Follow back" : "Following"
        followerCell.followButton.setTitle(followButtonTitle, for: .normal)
        
        // Update the Title and background if the profile is being followed or not.
-       let titleColour = profile.isFollowing ? UIColor.black : UIColor.white
+       let titleColour = profile.isFollowing ? UIColor.white : UIColor.black
        followerCell.followButton.setTitleColor(titleColour, for: .normal)
        
-       let backgroundColour = profile.isFollowing ? UIColor.systemGroupedBackground : UIColor.systemBlue
+       let backgroundColour = profile.isFollowing ? UIColor.systemBlue : UIColor.systemGroupedBackground
        followerCell.followButton.backgroundColor = backgroundColour
-       
-       // MARK: Simphiwe's solution
-       /*
-       followerCell.followButtonTapped = { [] in
-           self.showFollowAlert(for: profile) {
-               profile.isFollowing.toggle()
-               let followButtonTitle = profile.isFollowing ? "Follow" : "Following"
-               followerCell.followButton.setTitle(followButtonTitle, for: .normal)
-               self.database.profileArray[indexPath.row].isFollowing = profile.isFollowing
-               
-               followerCell.followButton.setTitleColor(.black, for: .normal)
-               followerCell.followButton.backgroundColor = .systemGroupedBackground
-           }
-       }
-       */
-       
+ 
        // MARK: Other way to do it. Still using closures.
        followerCell.followButtonTapped = {
            
            let alert = UIAlertController(title: "Follow Confirmation \(profile.name)",
                                          message: "Do you want to follow \(profile.username)?",
                                          preferredStyle: .actionSheet)
-           let followAction = UIAlertAction(title: "Follow Back", style: .default) { _ in
+           let followAction = UIAlertAction(title: "Follow ", style: .default) { _ in
                
                profile.isFollowing.toggle()
-               let followButtonTitle = profile.isFollowing ? "Following" : "Follow"
+               let followButtonTitle = profile.isFollowing ? "Follow back" : "Following"
                followerCell.followButton.setTitle(followButtonTitle, for: .normal)
                
-               let titleColour = profile.isFollowing ? UIColor.black : UIColor.white
+               let titleColour = profile.isFollowing ? UIColor.white : UIColor.black
                followerCell.followButton.setTitleColor(titleColour, for: .normal)
                
-               let backgroundColour = profile.isFollowing ? UIColor.systemGroupedBackground : UIColor.systemBlue
+               let backgroundColour = profile.isFollowing ? UIColor.systemBlue  : UIColor.systemGroupedBackground
                followerCell.followButton.backgroundColor = backgroundColour
+ 
            }
            
            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -114,20 +100,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        profileViewController.profile = database.profileArray[indexPath.row]
        navigationController?.pushViewController(profileViewController, animated: true)
    }
-   
-    /*
-   func showFollowAlert(for profile: Profile, completion: @escaping () -> Void) {
-       let alert = UIAlertController(title: "Follow Confirmation \(profile.name)",
-                                     message: "Do you want to follow \(profile.username)?",
-                                     preferredStyle: .actionSheet)
-       let followAction = UIAlertAction(title: "Follow", style: .default) { _ in
-           completion()
-       }
-       let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-       alert.addAction(followAction)
-       alert.addAction(cancelAction)
-       present(alert, animated: true, completion: nil)
-   }
-    */
 
 }
