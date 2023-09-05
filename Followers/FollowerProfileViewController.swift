@@ -313,7 +313,7 @@ class ProfileViewController: UIViewController  {
             let titleColor = (self.profile!.isFollowing) ? UIColor.white : UIColor.black
             let backgroundColor = (self.profile!.isFollowing) ? UIColor.systemBlue : UIColor.systemGroupedBackground
             self.followButton.setTitleColor(titleColor, for: .normal)
-            sel.followButton.backgroundColor = backgroundColor
+            self.followButton.backgroundColor = backgroundColor
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
